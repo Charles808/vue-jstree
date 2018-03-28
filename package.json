@@ -12,7 +12,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/zdy1988/vue-jstree.git"
+        "url": "https://github.com/Charles808/vue-jstree-sf.git"
     },
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
