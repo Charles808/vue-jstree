@@ -81,6 +81,18 @@
         model: this.data
       }
     },
+    created() {
+        console.error(created);
+        if (this.tooltipDisabled) {
+          console.error("disable pop")
+          this.$root.$emit('bv::disable::popover');
+        }
+        else {
+          console.error("enable pop")
+          this.$root.$emit('bv::enable::popover');
+        }
+    },
+
     watch: {
       tooltipDisabled (newValue) {
         if (newValue) {
