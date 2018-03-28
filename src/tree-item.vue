@@ -10,7 +10,7 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div id="tooltip-item" :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" v-b-popover.hover="tooltipMsg">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -36,9 +36,6 @@
                        :on-item-drop="onItemDrop">
             </tree-item>
         </ul>
-        <b-tooltip :disabled.sync="tooltipDisabled" target="tooltip-item">
-          {{ tooltipMsg }}
-        </b-tooltip>
     </li>
 </template>
 <script>
