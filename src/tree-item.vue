@@ -13,11 +13,6 @@
         <div id="tooltip-item" :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
-            <span>
-              <b-tooltip :disabled.sync="tooltipDisabled" target="tooltip-item">
-                {{ tooltipMsg }}
-              </b-tooltip>
-            </span>
             {{model[textFieldName]}}
         </div>
         <ul role="group" ref="group" class="tree-children" v-if="isFolder">
@@ -41,6 +36,9 @@
                        :on-item-drop="onItemDrop">
             </tree-item>
         </ul>
+        <b-tooltip :disabled.sync="tooltipDisabled" target="tooltip-item">
+          {{ tooltipMsg }}
+        </b-tooltip>
     </li>
 </template>
 <script>
