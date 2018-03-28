@@ -33,6 +33,7 @@
 
   export default {
     name: 'VJstree',
+    props : ['tooltipMsg'],
     props: {
       data: {type: Array},
       size: {type: String, validator: value => ['large', 'small'].indexOf(value) > -1},
