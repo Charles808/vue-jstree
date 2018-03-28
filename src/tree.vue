@@ -44,7 +44,6 @@
       allowBatch: {type: Boolean, default: false},
       textFieldName: {type: String, default: 'text'},
       valueFieldName: {type: String, default: 'value'},
-      tooltipMsg: {type: String, default: 'message'},
       tooltipmsg: {type: String},
       async: {type: Function},
       loadingText: {type: String, default: 'Loading...'},
