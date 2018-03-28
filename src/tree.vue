@@ -175,15 +175,6 @@
       },
 
       onItemHover(oriNode, oriItem) {
-        console.error("tree: " + this.tooltipMsg)
-        console.error(oriItem.id)
-        /*if (this.multiple) {
-          if (this.allowBatch) {
-            this.handleBatchSelectItems(oriNode, oriItem)
-          }
-        } else {
-          this.handleSingleSelectItems(oriNode, oriItem)
-        }*/
         this.$emit('item-hover', oriNode, oriItem)
       },
       handleSingleSelectItems(oriNode, oriItem) {
@@ -261,9 +252,6 @@
     },
     created() {
       this.initializeData(this.data)
-      console.error("tree created 1: " + this.tooltipDisabled)
-      //console.error("tree created data: " + JSON.stringify(this.data))
-      //console.error("tree created 2: " + this.tooltipmsg)
     },
     mounted() {
       if (this.async) {

@@ -10,7 +10,7 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" id='item-pop-trigger' v-b-popover.hover="tooltipMsg">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="handleItemMouseOut" v-b-popover.hover="tooltipMsg">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -195,9 +195,12 @@
         this.onItemClick(this, this.model)
       },
       handleItemHover () {
-        console.error("tree item: " + this.tooltipMsg)
         this.isHover = true
         this.onItemHover(this, this.model)
+      },
+      handleItemMouseOut () {
+        this.isHover = false
+        this.tooltipMsg = ''
       },
       handleItemDrop (e, oriNode, oriItem) {
         this.$el.style.backgroundColor = "inherit"
