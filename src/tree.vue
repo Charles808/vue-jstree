@@ -12,6 +12,7 @@
                  :parent-item="data"
                  :draggable="draggable"
                  :on-item-click="onItemClick"
+                 :on-item-hover="onItemHover"
                  :on-item-toggle="onItemToggle"
                  :on-item-drag-start="onItemDragStart"
                  :on-item-drag-end="onItemDragEnd"
@@ -159,7 +160,6 @@
         }
       },
       onItemClick(oriNode, oriItem) {
-        console.error("Clicked in tree.vue")
         if (this.multiple) {
           if (this.allowBatch) {
             this.handleBatchSelectItems(oriNode, oriItem)
@@ -167,7 +167,20 @@
         } else {
           this.handleSingleSelectItems(oriNode, oriItem)
         }
-        this.$emit('item', oriNode, oriItem)
+        this.$emit('item-click', oriNode, oriItem)
+      },
+
+      onItemHover(oriNode, oriItem) {
+        console.error("Hover")
+        console.error(oriItem.id)
+        /*if (this.multiple) {
+          if (this.allowBatch) {
+            this.handleBatchSelectItems(oriNode, oriItem)
+          }
+        } else {
+          this.handleSingleSelectItems(oriNode, oriItem)
+        }*/
+        this.$emit('item-hover', oriNode, oriItem)
       },
       handleSingleSelectItems(oriNode, oriItem) {
         this.handleRecursionNodeChilds(this, node => {

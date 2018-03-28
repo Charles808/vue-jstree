@@ -10,7 +10,7 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div :class="anchorClasses" @click="handleItemClick" @mouseover="isHover=true" @mouseout="isHover=false">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -27,6 +27,7 @@
                        :parent-item="model.children"
                        :draggable="draggable"
                        :on-item-click="onItemClick"
+                       :on-item-hover="onItemHover"
                        :on-item-toggle="onItemToggle"
                        :on-item-drag-start="onItemDragStart"
                        :on-item-drag-end="onItemDragEnd"
@@ -50,6 +51,9 @@
       parentItem: {type: Array},
       draggable: {type: Boolean, default: false},
       onItemClick: {
+        type: Function, default: () => false
+      },
+      onItemHover: {
         type: Function, default: () => false
       },
       onItemToggle: {
@@ -181,10 +185,13 @@
         })
       },
       handleItemClick () {
-        console.error("Clicked")
         if (this.model.disabled) return
         this.model.selected = !this.model.selected
         this.onItemClick(this, this.model)
+      },
+      handleItemHover () {
+        isHover = true
+        this.onItemHover(this, this.model)
       },
       handleItemDrop (e, oriNode, oriItem) {
         this.$el.style.backgroundColor = "inherit"
