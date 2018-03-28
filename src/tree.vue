@@ -33,7 +33,6 @@
 
   export default {
     name: 'VJstree',
-    props : ['tooltipMsg'],
     props: {
       data: {type: Array},
       size: {type: String, validator: value => ['large', 'small'].indexOf(value) > -1},
@@ -44,7 +43,8 @@
       allowBatch: {type: Boolean, default: false},
       textFieldName: {type: String, default: 'text'},
       valueFieldName: {type: String, default: 'value'},
-      tooltipmsg: {type: String},
+      tooltipMsg: {type: String, default: 'message'},
+      tooltipmsg: {type: String, default: 'message'},
       async: {type: Function},
       loadingText: {type: String, default: 'Loading...'},
       draggable: {type: Boolean, default: false},
