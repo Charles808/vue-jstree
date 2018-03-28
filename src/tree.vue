@@ -167,7 +167,7 @@
         } else {
           this.handleSingleSelectItems(oriNode, oriItem)
         }
-        this.$emit('item-click', oriNode, oriItem)
+        this.$emit('item', oriNode, oriItem)
       },
       handleSingleSelectItems(oriNode, oriItem) {
         this.handleRecursionNodeChilds(this, node => {
