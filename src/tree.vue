@@ -44,7 +44,6 @@
       textFieldName: {type: String, default: 'text'},
       valueFieldName: {type: String, default: 'value'},
       tooltipMsg: {type: String, default: 'message'},
-      tooltipmsg: {type: String, default: 'message'},
       async: {type: Function},
       loadingText: {type: String, default: 'Loading...'},
       draggable: {type: Boolean, default: false},
@@ -260,9 +259,9 @@
     },
     created() {
       this.initializeData(this.data)
-      console.error("tree created 1: " + this.tooltipMsg)
-      console.error("tree created data: " + JSON.stringify(this.data))
-      console.error("tree created 2: " + this.tooltipmsg)
+      //console.error("tree created 1: " + this.tooltipMsg)
+      //console.error("tree created data: " + JSON.stringify(this.data))
+      //console.error("tree created 2: " + this.tooltipmsg)
     },
     mounted() {
       if (this.async) {
