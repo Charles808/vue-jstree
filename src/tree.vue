@@ -159,6 +159,7 @@
         }
       },
       onItemClick(oriNode, oriItem) {
+        console.error("Clicked in tree.vue")
         if (this.multiple) {
           if (this.allowBatch) {
             this.handleBatchSelectItems(oriNode, oriItem)
