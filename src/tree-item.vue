@@ -10,7 +10,7 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" v-b-popover.hover="tooltipMsg">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" id='item-pop-trigger' v-b-popover.hover="tooltipMsg">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -149,6 +149,13 @@
           }
         }
       }
+    },
+    mounted() {
+      if (this.tooltipDisabled)
+        this.$root.$emit('bv::disable::popover', 'item-pop-trigger');
+      else
+        this.$root.$emit('bv::enable::popover', 'item-pop-trigger');
+
     },
     methods: {
       handleRecursionNodeParents(node, func) {
