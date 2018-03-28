@@ -259,6 +259,7 @@
     },
     created() {
       this.initializeData(this.data)
+      console.error("tree created: " + this.tooltipMsg)
     },
     mounted() {
       if (this.async) {
