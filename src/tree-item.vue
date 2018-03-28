@@ -190,7 +190,7 @@
         this.onItemClick(this, this.model)
       },
       handleItemHover () {
-        isHover = true
+        this.isHover = true
         this.onItemHover(this, this.model)
       },
       handleItemDrop (e, oriNode, oriItem) {
