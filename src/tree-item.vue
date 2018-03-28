@@ -151,10 +151,14 @@
       }
     },
     mounted() {
-      if (this.tooltipDisabled)
-        this.$root.$emit('bv::disable::popover', 'item-pop-trigger');
-      else
-        this.$root.$emit('bv::enable::popover', 'item-pop-trigger');
+      if (this.tooltipDisabled) {
+        console.error("disable pop")
+        this.$root.$emit('bv::disable::popover');
+      }
+      else {
+        console.error("enable pop")
+        this.$root.$emit('bv::enable::popover');
+      }
 
     },
     methods: {
