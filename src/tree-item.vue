@@ -192,6 +192,7 @@
         this.onItemClick(this, this.model)
       },
       handleItemHover () {
+        console.error("tree item: " + this.tooltipMsg)
         this.isHover = true
         this.onItemHover(this, this.model)
       },

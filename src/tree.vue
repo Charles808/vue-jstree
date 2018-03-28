@@ -173,7 +173,7 @@
       },
 
       onItemHover(oriNode, oriItem) {
-        console.error("Hover")
+        console.error("tree: " + this.tooltipMsg)
         console.error(oriItem.id)
         /*if (this.multiple) {
           if (this.allowBatch) {
