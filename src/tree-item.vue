@@ -181,10 +181,10 @@
         })
       },
       handleItemClick () {
+        console.error("Clicked")
         if (this.model.disabled) return
         this.model.selected = !this.model.selected
         this.onItemClick(this, this.model)
-        console.error("Clicked")
       },
       handleItemDrop (e, oriNode, oriItem) {
         this.$el.style.backgroundColor = "inherit"
