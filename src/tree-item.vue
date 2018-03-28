@@ -82,6 +82,16 @@
       }
     },
     watch: {
+      tooltipDisabled (newValue) {
+        if (newValue) {
+          console.error("disable pop")
+          this.$root.$emit('bv::disable::popover');
+        }
+        else {
+          console.error("enable pop")
+          this.$root.$emit('bv::enable::popover');
+        }
+      },
       isDragEnter (newValue) {
         if (newValue) {
           this.$el.style.backgroundColor = "#C9FDC9"
@@ -149,17 +159,6 @@
           }
         }
       }
-    },
-    mounted() {
-      if (this.tooltipDisabled) {
-        console.error("disable pop")
-        this.$root.$emit('bv::disable::popover');
-      }
-      else {
-        console.error("enable pop")
-        this.$root.$emit('bv::enable::popover');
-      }
-
     },
     methods: {
       handleRecursionNodeParents(node, func) {
