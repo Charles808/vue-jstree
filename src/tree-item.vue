@@ -200,7 +200,7 @@
       },
       handleItemMouseOut () {
         this.isHover = false
-        this.tooltipMsg = ''
+        //this.tooltipMsg = ''
       },
       handleItemDrop (e, oriNode, oriItem) {
         this.$el.style.backgroundColor = "inherit"
