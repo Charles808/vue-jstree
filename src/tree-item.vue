@@ -10,7 +10,7 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" v-b-tooltip.hover title="test">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" v-b-tooltip.hover :title="tooltipMsg">
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -21,6 +21,7 @@
                        :data="child"
                        :text-field-name="textFieldName"
                        :value-field-name="valueFieldName"
+                       :tooltip-msg="tooltipMsg"
                        :whole-row="wholeRow"
                        :show-checkbox="showCheckbox"
                        :height= "height"
@@ -45,7 +46,7 @@
       data: {type: Object, required: true},
       textFieldName: {type: String},
       valueFieldName: {type: String},
-      //tooltipMsg: {type: String},
+      tooltipMsg: {type: String},
       wholeRow: {type: Boolean, default: false},
       showCheckbox: {type: Boolean, default: false},
       height: {type: Number, default: 24},
