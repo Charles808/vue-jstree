@@ -44,7 +44,7 @@
       allowBatch: {type: Boolean, default: false}, 
       textFieldName: {type: String, default: 'text'},
       valueFieldName: {type: String, default: 'value'},
-      tooltipMsg: {type: String, default: 'message'},
+      tooltipMsg: {type: String, default: ''},
       tooltipDisabled: {type: Boolean, default: true},
       async: {type: Function},
       loadingText: {type: String, default: 'Loading...'},
@@ -261,7 +261,7 @@
     },
     created() {
       this.initializeData(this.data)
-      //console.error("tree created 1: " + this.tooltipMsg)
+      console.error("tree created 1: " + this.tooltipDisabled)
       //console.error("tree created data: " + JSON.stringify(this.data))
       //console.error("tree created 2: " + this.tooltipmsg)
     },

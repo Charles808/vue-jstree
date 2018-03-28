@@ -47,7 +47,7 @@
       data: {type: Object, required: true},
       textFieldName: {type: String},
       valueFieldName: {type: String},
-      tooltipMsg: {type: String, default: 'message'},
+      tooltipMsg: {type: String, default: ''},
       tooltipDisabled: {type: Boolean, default: true},
       wholeRow: {type: Boolean, default: false},
       showCheckbox: {type: Boolean, default: false},
@@ -81,29 +81,8 @@
         model: this.data
       }
     },
-    created() {
-        console.error(created);
-        if (this.tooltipDisabled) {
-          console.error("disable pop")
-          this.$root.$emit('bv::disable::popover');
-        }
-        else {
-          console.error("enable pop")
-          this.$root.$emit('bv::enable::popover');
-        }
-    },
 
     watch: {
-      tooltipDisabled (newValue) {
-        if (newValue) {
-          console.error("disable pop")
-          this.$root.$emit('bv::disable::popover');
-        }
-        else {
-          console.error("enable pop")
-          this.$root.$emit('bv::enable::popover');
-        }
-      },
       isDragEnter (newValue) {
         if (newValue) {
           this.$el.style.backgroundColor = "#C9FDC9"
