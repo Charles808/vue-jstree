@@ -10,7 +10,10 @@
         @drop.stop.prevent="handleItemDrop($event, _self, _self.model)">
         <div role="presentation" :class="wholeRowClasses" v-if="isWholeRow">&nbsp;</div>
         <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
-        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false" v-b-tooltip.hover :title="tooltipMsg">
+        <div :class="anchorClasses" @click="handleItemClick" @mouseover="handleItemHover" @mouseout="isHover=false">
+            <b-tooltip :disabled.sync="tooltipDisabled">
+              {{ tooltipMsg }}
+            </b-tooltip>
             <i class="tree-icon tree-checkbox" role="presentation" v-if="showCheckbox && !model.loading"></i>
             <i :class="themeIconClasses" role="presentation" v-if="!model.loading"></i>
             {{model[textFieldName]}}
@@ -22,6 +25,7 @@
                        :text-field-name="textFieldName"
                        :value-field-name="valueFieldName"
                        :tooltip-msg="tooltipMsg"
+                       :tooltip-disabled="tooltipDisabled"
                        :whole-row="wholeRow"
                        :show-checkbox="showCheckbox"
                        :height= "height"
@@ -46,7 +50,8 @@
       data: {type: Object, required: true},
       textFieldName: {type: String},
       valueFieldName: {type: String},
-      tooltipMsg: {type: String},
+      tooltipMsg: {type: String, default: 'message'},
+      tooltipDisabled: {type: Boolean, default: true},
       wholeRow: {type: Boolean, default: false},
       showCheckbox: {type: Boolean, default: false},
       height: {type: Number, default: 24},

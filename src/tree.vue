@@ -7,6 +7,7 @@
                  :text-field-name="textFieldName"
                  :value-field-name="valueFieldName"
                  :tooltip-msg="tooltipMsg"
+                 :tooltip-disabled="tooltipDisabled"
                  :whole-row="wholeRow"
                  :show-checkbox="showCheckbox"
                  :height="sizeHight"
@@ -40,10 +41,11 @@
       wholeRow: {type: Boolean, default: false},
       noDots: {type: Boolean, default: false},
       multiple: {type: Boolean, default: false},
-      allowBatch: {type: Boolean, default: false},
+      allowBatch: {type: Boolean, default: false}, 
       textFieldName: {type: String, default: 'text'},
       valueFieldName: {type: String, default: 'value'},
       tooltipMsg: {type: String, default: 'message'},
+      tooltipDisabled: {type: Boolean, default: true},
       async: {type: Function},
       loadingText: {type: String, default: 'Loading...'},
       draggable: {type: Boolean, default: false},
